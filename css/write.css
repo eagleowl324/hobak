@@ -1,0 +1,1023 @@
+/* 호박(Hobak) 중고거래 웹서비스 - 글쓰기 페이지 스타일 (write.css) */
+/* 상품상세 페이지의 둥근 카드 프레임(border: 1.5px solid #212124, border-radius: 24px, max-width: 500px) 계승 */
+
+.hobak-write-page-shell {
+  min-height: 100vh;
+  background-color: #F7F8FA;
+  padding: 28px 16px 64px;
+}
+
+/* 단독 페이지 상단 미니 브랜드 바 */
+.hobak-write-topbar {
+  max-width: 500px;
+  margin: 0 auto 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.hobak-write-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--hobak-text-primary, #212124);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.hobak-write-brand-logo {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.hobak-write-topbar-Right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hobak-write-topbar-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--hobak-orange, #FF6F0F);
+  background: var(--hobak-orange-light, #FFF4EB);
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+
+/* 메인 카드 컨테이너 (상품상세 페이지와 동일한 외곽 프레임) */
+.hobak-write-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.hobak-write-card {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  border: 1.5px solid #212124;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 32px rgba(33, 33, 36, 0.08);
+  position: relative;
+}
+
+/* ==========================================
+   1. 상단 정사각형 이미지 슬라이더 & 오버레이 헤더
+   ========================================== */
+.hobak-write-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #F1F3F5;
+  overflow: hidden;
+  user-select: none;
+}
+
+.hobak-write-hero.drag-over {
+  outline: 3px dashed var(--hobak-orange, #FF6F0F);
+  outline-offset: -6px;
+}
+
+/* 상단 오버레이 헤더 (좌측 ✕ 닫기, 우측 등록 완료 캡슐 버튼) */
+.hobak-write-hero-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+.hobak-write-close-btn {
+  pointer-events: auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #212124;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.hobak-write-close-btn:hover {
+  background: #FFFFFF;
+  transform: scale(1.05);
+}
+
+.hobak-write-close-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: #212124;
+  stroke-width: 2.2;
+}
+
+/* 상세 페이지 '앱에서 보기' 버튼과 동일한 주황색 캡슐 버튼 */
+.hobak-write-top-submit-btn {
+  pointer-events: auto;
+  background-color: var(--hobak-orange, #FF6F0F);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(255, 111, 15, 0.32);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  letter-spacing: -0.01em;
+}
+
+.hobak-write-top-submit-btn:hover {
+  background-color: var(--hobak-orange-hover, #E85D00);
+  transform: translateY(-1px);
+}
+
+.hobak-write-top-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* 슬라이드 이미지 뷰포트 */
+.hobak-write-slides {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hobak-write-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+/* 이미지가 없을 때의 빈 상태 프리뷰 */
+.hobak-write-empty-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 35%, #FFFFFF 0%, #F1F3F5 100%);
+  color: #4D5159;
+}
+
+.hobak-write-empty-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  background: #FFF4EB;
+  color: var(--hobak-orange, #FF6F0F);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 14px;
+  box-shadow: 0 6px 18px rgba(255, 111, 15, 0.14);
+}
+
+.hobak-write-empty-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #212124;
+  margin-bottom: 6px;
+}
+
+.hobak-write-empty-desc {
+  font-size: 13.5px;
+  color: #868B94;
+  margin-bottom: 18px;
+  line-height: 1.45;
+}
+
+.hobak-write-empty-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #212124;
+  color: #FFFFFF;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.hobak-write-empty-upload-btn:hover {
+  background: #343A40;
+  transform: translateY(-1px);
+}
+
+/* 좌/우 슬라이더 화살표 (< >) */
+.hobak-write-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  background: rgba(33, 33, 36, 0.24);
+  backdrop-filter: blur(4px);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.hobak-write-slider-arrow:hover {
+  background: rgba(33, 33, 36, 0.48);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.hobak-write-slider-arrow.prev {
+  left: 14px;
+}
+
+.hobak-write-slider-arrow.next {
+  right: 14px;
+}
+
+.hobak-write-slider-arrow svg {
+  width: 24px;
+  height: 24px;
+  stroke: #FFFFFF;
+  stroke-width: 2.4;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+}
+
+/* 현재 사진 삭제 & 매수 카운터 플로팅 배지 */
+.hobak-write-slide-badge-bar {
+  position: absolute;
+  bottom: 34px;
+  right: 16px;
+  z-index: 16;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hobak-write-slide-count {
+  background: rgba(33, 33, 36, 0.68);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.hobak-write-slide-remove-btn {
+  background: rgba(224, 49, 49, 0.88);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.15s ease;
+}
+
+.hobak-write-slide-remove-btn:hover {
+  background: #C92A2A;
+}
+
+/* 하단 인디케이터 점 (• • •) */
+.hobak-write-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 16;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(2px);
+}
+
+.hobak-write-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.hobak-write-dot.active {
+  background: #FFFFFF;
+  transform: scale(1.2);
+}
+
+/* ==========================================
+   이미지 업로드 & 원클릭 샘플 사진 툴바
+   ========================================== */
+.hobak-write-media-toolbar {
+  background: #F8F9FA;
+  border-bottom: 1px solid #EAEBEE;
+  padding: 12px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hobak-write-media-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hobak-write-file-input {
+  display: none;
+}
+
+.hobak-write-media-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid #DEE2E6;
+  background: #FFFFFF;
+  color: #212124;
+  transition: all 0.15s ease;
+}
+
+.hobak-write-media-btn:hover {
+  border-color: var(--hobak-orange, #FF6F0F);
+  color: var(--hobak-orange, #FF6F0F);
+  background: #FFF9F5;
+}
+
+.hobak-write-media-btn.primary {
+  background: #212124;
+  color: #FFFFFF;
+  border-color: #212124;
+}
+
+.hobak-write-media-btn.primary:hover {
+  background: #343A40;
+  color: #FFFFFF;
+}
+
+/* 이미지 URL 직접 입력 행 */
+.hobak-write-url-row {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.hobak-write-url-row.open {
+  display: flex;
+}
+
+.hobak-write-url-input {
+  flex: 1;
+  height: 34px;
+  padding: 0 11px;
+  font-size: 13px;
+  border: 1px solid #CED4DA;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #212124;
+  outline: none;
+}
+
+.hobak-write-url-input:focus {
+  border-color: var(--hobak-orange, #FF6F0F);
+}
+
+.hobak-write-url-add-btn {
+  height: 34px;
+  padding: 0 13px;
+  font-size: 12.5px;
+  font-weight: 700;
+  background: var(--hobak-orange, #FF6F0F);
+  color: #FFFFFF;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.hobak-write-url-add-btn:hover {
+  background: var(--hobak-orange-hover, #E85D00);
+}
+
+/* 원클릭 샘플 사진 프리셋 행 */
+.hobak-write-sample-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hobak-write-sample-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hobak-write-sample-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #4D5159;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hobak-write-autofill-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11.5px;
+  color: #868B94;
+  cursor: pointer;
+  user-select: none;
+}
+
+.hobak-write-autofill-toggle input {
+  accent-color: var(--hobak-orange, #FF6F0F);
+  cursor: pointer;
+}
+
+.hobak-write-sample-chips {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.hobak-write-sample-chip {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4D5159;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 999px;
+  padding: 5px 10px;
+  transition: all 0.15s ease;
+}
+
+.hobak-write-sample-chip:hover {
+  border-color: var(--hobak-orange, #FF6F0F);
+  color: var(--hobak-orange, #FF6F0F);
+  background: #FFF4EB;
+}
+
+/* 썸네일 미니 리스트 */
+.hobak-write-thumb-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-top: 2px;
+}
+
+.hobak-write-thumb-strip:empty {
+  display: none;
+}
+
+.hobak-write-thumb-item {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  flex-shrink: 0;
+  cursor: pointer;
+  background: #EAEBEE;
+}
+
+.hobak-write-thumb-item.active {
+  border-color: var(--hobak-orange, #FF6F0F);
+}
+
+.hobak-write-thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hobak-write-thumb-del {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(33, 33, 36, 0.78);
+  color: #FFFFFF;
+  font-size: 10px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   2. 판매자 프로필 & 동네 설정 행 (상세 페이지 동일 구조)
+   ========================================== */
+.hobak-write-profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #EAEBEE;
+  gap: 12px;
+}
+
+.hobak-write-profile-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+/* 회색 원형 프로필 아바타 */
+.hobak-write-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #CFD2D7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.hobak-write-avatar svg {
+  width: 34px;
+  height: 34px;
+  fill: #FFFFFF;
+  transform: translateY(3px);
+}
+
+.hobak-write-seller-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.hobak-write-nickname-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hobak-write-nickname-input {
+  font-size: 16px;
+  font-weight: 700;
+  color: #212124;
+  border: none;
+  border-bottom: 1px dashed transparent;
+  background: transparent;
+  padding: 1px 4px 1px 0;
+  width: 140px;
+  max-width: 100%;
+  outline: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.hobak-write-nickname-input:hover,
+.hobak-write-nickname-input:focus {
+  border-bottom-color: var(--hobak-orange, #FF6F0F);
+  background: #FFF9F5;
+  border-radius: 4px 4px 0 0;
+}
+
+.hobak-write-location-select {
+  font-size: 13.5px;
+  color: #4D5159;
+  border: none;
+  background: transparent;
+  padding: 1px 18px 1px 0;
+  margin-left: -2px;
+  cursor: pointer;
+  outline: none;
+  width: fit-content;
+  max-width: 100%;
+  border-bottom: 1px dashed transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.hobak-write-location-select:hover,
+.hobak-write-location-select:focus {
+  color: #212124;
+  border-bottom-color: #868B94;
+}
+
+/* 우측 매너온도 (50.2°C 😮 + 매너온도 밑줄) */
+.hobak-write-manner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  gap: 3px;
+}
+
+.hobak-write-manner-top {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hobak-write-manner-temp {
+  font-size: 16px;
+  font-weight: 700;
+  color: #E8590C;
+  letter-spacing: -0.01em;
+}
+
+.hobak-write-manner-face {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #FFF4E6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.hobak-write-manner-label {
+  font-size: 12px;
+  color: #868B94;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ==========================================
+   3. 상품 정보 입력 본문 (상세 페이지 본문 1:1 매칭)
+   ========================================== */
+.hobak-write-body {
+  padding: 22px 20px 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 상품 제목 입력 (큰 굵은 타이포그래피) */
+.hobak-write-title-field {
+  margin-bottom: 8px;
+}
+
+.hobak-write-title-input {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  color: #212124;
+  line-height: 1.38;
+  letter-spacing: -0.02em;
+  border: none;
+  border-bottom: 1.5px solid transparent;
+  background: transparent;
+  padding: 4px 0;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.hobak-write-title-input::placeholder {
+  color: #ADB5BD;
+  font-weight: 700;
+}
+
+.hobak-write-title-input:hover,
+.hobak-write-title-input:focus {
+  border-bottom-color: var(--hobak-orange, #FF6F0F);
+}
+
+/* 카테고리 선택 · 시간 표시 행 (밑줄 스타일) */
+.hobak-write-submeta-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: #868B94;
+  margin-bottom: 10px;
+}
+
+.hobak-write-category-select {
+  font-size: 13px;
+  color: #868B94;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  padding: 2px 2px 2px 0;
+  font-weight: 500;
+}
+
+.hobak-write-category-select:hover,
+.hobak-write-category-select:focus {
+  color: var(--hobak-orange, #FF6F0F);
+}
+
+.hobak-write-time-dot {
+  color: #868B94;
+}
+
+.hobak-write-time-label {
+  color: #868B94;
+}
+
+/* 판매 가격 입력 & 호박페이 토글 행 */
+.hobak-write-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed #EAEBEE;
+}
+
+.hobak-write-price-input-group {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  flex: 1;
+  min-width: 170px;
+}
+
+.hobak-write-price-input {
+  font-size: 19px;
+  font-weight: 800;
+  color: #212124;
+  letter-spacing: -0.01em;
+  border: none;
+  border-bottom: 1.5px solid transparent;
+  background: transparent;
+  width: 150px;
+  padding: 2px 0;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.hobak-write-price-input::placeholder {
+  color: #ADB5BD;
+  font-weight: 700;
+}
+
+.hobak-write-price-input:hover,
+.hobak-write-price-input:focus {
+  border-bottom-color: var(--hobak-orange, #FF6F0F);
+}
+
+.hobak-write-price-unit {
+  font-size: 19px;
+  font-weight: 800;
+  color: #212124;
+}
+
+/* 호박페이 사용 체크 토글 */
+.hobak-write-pay-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2B8A3E;
+  background: #EBFBEE;
+  border: 1px solid #B2F2BB;
+  padding: 6px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.hobak-write-pay-toggle:has(input:not(:checked)) {
+  color: #868B94;
+  background: #F1F3F5;
+  border-color: #DEE2E6;
+}
+
+.hobak-write-pay-toggle input {
+  accent-color: #2B8A3E;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* 상세 설명 멀티라인 입력 */
+.hobak-write-desc-wrap {
+  margin-bottom: 22px;
+}
+
+.hobak-write-desc-textarea {
+  width: 100%;
+  min-height: 185px;
+  font-size: 16px;
+  line-height: 1.62;
+  color: #212124;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  padding: 6px 0;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.15s ease, background-color 0.15s ease, padding 0.15s ease;
+}
+
+.hobak-write-desc-textarea::placeholder {
+  color: #ADB5BD;
+  line-height: 1.6;
+}
+
+.hobak-write-desc-textarea:focus {
+  background: #FAFAFB;
+  border-color: #EAEBEE;
+  padding: 10px 12px;
+}
+
+/* 하단 사이즈/스펙 입력 행 (상세 페이지 '사이즈 270' 1:1 매칭) */
+.hobak-write-size-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 12px;
+  border-top: 1px solid #F1F3F5;
+  margin-bottom: 24px;
+}
+
+.hobak-write-size-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.hobak-write-size-label {
+  font-size: 15.5px;
+  font-weight: 800;
+  color: #212124;
+  white-space: nowrap;
+}
+
+.hobak-write-size-input {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: #212124;
+  border: none;
+  border-bottom: 1.5px solid #DEE2E6;
+  background: transparent;
+  padding: 3px 4px;
+  width: 160px;
+  max-width: 100%;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.hobak-write-size-input::placeholder {
+  color: #ADB5BD;
+}
+
+.hobak-write-size-input:focus {
+  border-bottom-color: var(--hobak-orange, #FF6F0F);
+}
+
+.hobak-write-size-presets {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.hobak-write-size-chip {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #4D5159;
+  background: #F1F3F5;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.hobak-write-size-chip:hover {
+  background: #FFF4EB;
+  color: var(--hobak-orange, #FF6F0F);
+}
+
+/* 카드 하단 메인 제출 버튼 & 초기화 버튼 */
+.hobak-write-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hobak-write-reset-btn {
+  height: 52px;
+  padding: 0 18px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #4D5159;
+  background: #F1F3F5;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.hobak-write-reset-btn:hover {
+  background: #E9ECEF;
+  color: #212124;
+}
+
+.hobak-write-submit-btn {
+  flex: 1;
+  height: 52px;
+  border-radius: 14px;
+  background-color: var(--hobak-orange, #FF6F0F);
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(255, 111, 15, 0.28);
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hobak-write-submit-btn:hover {
+  background-color: var(--hobak-orange-hover, #E85D00);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(255, 111, 15, 0.36);
+}
+
+.hobak-write-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* 입력 에러 강조 애니메이션 */
+.hobak-write-field-error {
+  border-bottom-color: #E03131 !important;
+  animation: hobakWriteShake 0.3s ease;
+}
+
+@keyframes hobakWriteShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 540px) {
+  .hobak-write-page-shell {
+    padding: 12px 10px 44px;
+  }
+
+  .hobak-write-card {
+    border-radius: 20px;
+  }
+
+  .hobak-write-profile-section {
+    padding: 14px 16px;
+  }
+
+  .hobak-write-body {
+    padding: 18px 16px 22px;
+  }
+
+  .hobak-write-title-input {
+    font-size: 18.5px;
+  }
+}

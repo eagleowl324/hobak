@@ -1,0 +1,392 @@
+/* ==========================================================================
+   호박(🎃 호박) 중고거래 웹서비스 - 로그인/회원가입 모달 & 상단 인증 바 스타일 (auth.css)
+   ========================================================================== */
+
+/* 1. 상단 오른쪽 인증 버튼 컨테이너 ([로그인] <-> [닉네임] [로그아웃]) */
+.hobak-auth-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  order: 2;
+}
+
+.hobak-global-right .hobak-auth-bar {
+  order: 99;
+}
+
+.hobak-auth-login-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--hobak-text-primary, #212124);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid var(--hobak-border, #EAEBEE);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: nowrap;
+}
+
+.hobak-auth-login-btn:hover {
+  border-color: var(--hobak-orange, #FF6F0F);
+  color: var(--hobak-orange, #FF6F0F);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 111, 15, 0.16);
+}
+
+.hobak-auth-user-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hobak-auth-nickname-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--hobak-orange, #FF6F0F);
+  background: var(--hobak-orange-light, #FFF4EB);
+  border: 1.5px solid rgba(255, 111, 15, 0.28);
+  cursor: default;
+  white-space: nowrap;
+}
+
+.hobak-auth-logout-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hobak-text-secondary, #4D5159);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--hobak-border, #EAEBEE);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.hobak-auth-logout-btn:hover {
+  color: #FA5252;
+  border-color: rgba(250, 82, 82, 0.4);
+  background: #FFF5F5;
+}
+
+/* 글로벌 다크 상단 바(.hobak-global-bar) 내부용 크기 보정 */
+.hobak-global-bar .hobak-auth-login-btn {
+  height: 32px;
+  padding: 0 14px;
+  font-size: 12.5px;
+  background: #FFFFFF;
+  color: #212124;
+  border: none;
+}
+
+.hobak-global-bar .hobak-auth-nickname-btn {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 12.5px;
+  background: rgba(255, 111, 15, 0.2);
+  color: #FFA94D;
+  border-color: rgba(255, 111, 15, 0.45);
+}
+
+.hobak-global-bar .hobak-auth-logout-btn {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #E9ECEF;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.hobak-global-bar .hobak-auth-logout-btn:hover {
+  background: rgba(250, 82, 82, 0.25);
+  color: #FFC9C9;
+  border-color: rgba(250, 82, 82, 0.5);
+}
+
+.hobak-auth-hidden {
+  display: none !important;
+}
+
+/* 2. 상품목록 카드 내 작성자 닉네임 배지 */
+.hobak-card-seller-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--hobak-text-secondary, #4D5159);
+  min-width: 0;
+}
+
+.hobak-card-seller-row .hobak-card-meta {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hobak-card-seller-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 111, 15, 0.1);
+  color: var(--hobak-orange, #FF6F0F);
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+  flex-shrink: 0;
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hobak-detail-seller-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hobak-detail-author-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--hobak-orange, #FF6F0F);
+  background: var(--hobak-orange-light, #FFF4EB);
+}
+
+html[data-theme="dark"] .hobak-auth-login-btn,
+html[data-theme="dark"] .hobak-auth-logout-btn {
+  background: rgba(28, 33, 46, 0.85);
+  color: #F3F5F8;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* 3. 로그인 / 회원가입 모달 */
+.hobak-auth-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 17, 24, 0.58);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 9900;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.24s ease;
+}
+
+.hobak-auth-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hobak-auth-modal {
+  width: 100%;
+  max-width: 420px;
+  background: var(--ag-glass-bg-strong, #FFFFFF);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1.5px solid rgba(33, 33, 36, 0.85);
+  border-radius: 26px;
+  box-shadow: 0 32px 80px -12px rgba(0, 0, 0, 0.32);
+  padding: 28px 26px 26px;
+  color: var(--hobak-text-primary, #212124);
+  transform: translateY(18px) scale(0.96);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+
+.hobak-auth-backdrop.open .hobak-auth-modal {
+  transform: translateY(0) scale(1);
+}
+
+.hobak-auth-modal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.hobak-auth-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--hobak-orange, #FF6F0F);
+}
+
+.hobak-auth-close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(134, 139, 148, 0.12);
+  color: var(--hobak-text-primary, #212124);
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.hobak-auth-close-btn:hover {
+  background: rgba(134, 139, 148, 0.24);
+}
+
+.hobak-auth-notice {
+  display: none;
+  margin-bottom: 14px;
+  padding: 10px 13px;
+  border-radius: 12px;
+  background: var(--hobak-orange-light, #FFF4EB);
+  color: var(--hobak-orange, #FF6F0F);
+  font-size: 12.5px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 111, 15, 0.25);
+}
+
+.hobak-auth-notice.show {
+  display: block;
+}
+
+/* 로그인 / 회원가입 탭 스위처 */
+.hobak-auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 5px;
+  border-radius: 14px;
+  background: rgba(134, 139, 148, 0.12);
+  margin-bottom: 20px;
+}
+
+.hobak-auth-tab {
+  padding: 10px 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--hobak-text-secondary, #4D5159);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.hobak-auth-tab.active {
+  background: #FFFFFF;
+  color: var(--hobak-text-primary, #212124);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="dark"] .hobak-auth-tab.active {
+  background: #252A3A;
+  color: #F3F5F8;
+}
+
+.hobak-auth-field {
+  margin-bottom: 14px;
+}
+
+.hobak-auth-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--hobak-text-secondary, #4D5159);
+  margin-bottom: 6px;
+}
+
+.hobak-auth-req {
+  color: var(--hobak-orange, #FF6F0F);
+  margin-left: 3px;
+}
+
+.hobak-auth-input {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1.5px solid var(--hobak-border, #EAEBEE);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--hobak-text-primary, #212124);
+  font-size: 14.5px;
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+html[data-theme="dark"] .hobak-auth-input {
+  background: rgba(20, 24, 34, 0.9);
+  color: #F3F5F8;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.hobak-auth-input:focus {
+  border-color: var(--hobak-orange, #FF6F0F);
+  box-shadow: 0 0 0 3px rgba(255, 111, 15, 0.16);
+}
+
+.hobak-auth-error {
+  display: none;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(250, 82, 82, 0.1);
+  border: 1px solid rgba(250, 82, 82, 0.3);
+  color: #E03131;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.hobak-auth-error.show {
+  display: block;
+}
+
+.hobak-auth-submit-btn {
+  width: 100%;
+  height: 48px;
+  margin-top: 6px;
+  border-radius: 14px;
+  background: var(--ss-brand-gradient, linear-gradient(135deg, #FF6F0F 0%, #FF8E3C 100%));
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 10px 24px -6px rgba(255, 111, 15, 0.45);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.hobak-auth-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -6px rgba(255, 111, 15, 0.6);
+}
+
+.hobak-auth-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}

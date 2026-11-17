@@ -1,0 +1,75 @@
+{
+  "$schema": "https://styleseed.dev/schemas/colors.json",
+  "meta": {
+    "project": "hobak-market",
+    "generator": "ui-setup (sickn33/agentic-awesome-skills)"
+  },
+  "skins": {
+    "hobak": {
+      "label": "🎃 호박 오리지널 (Karrot Warm)",
+      "primary": "#FF6F0F",
+      "primaryHover": "#E85D00",
+      "primarySoft": "#FFF4EB",
+      "primarySoftDark": "rgba(255, 111, 15, 0.18)",
+      "gradient": "linear-gradient(135deg, #FF6F0F 0%, #FF8E3C 100%)"
+    },
+    "toss": {
+      "label": "💳 Toss 클린 (Financial Blue)",
+      "primary": "#3182F6",
+      "primaryHover": "#1B64DA",
+      "primarySoft": "#E8F3FF",
+      "primarySoftDark": "rgba(49, 130, 246, 0.2)",
+      "gradient": "linear-gradient(135deg, #3182F6 0%, #5B9DFF 100%)"
+    },
+    "linear": {
+      "label": "📐 Linear 스페이셜 (Indigo Precision)",
+      "primary": "#5E6AD2",
+      "primaryHover": "#4B56B8",
+      "primarySoft": "#EEF0FF",
+      "primarySoftDark": "rgba(94, 106, 210, 0.22)",
+      "gradient": "linear-gradient(135deg, #5E6AD2 0%, #828DF2 100%)"
+    },
+    "stripe": {
+      "label": "✨ Stripe 커머스 (Editorial Blurple)",
+      "primary": "#635BFF",
+      "primaryHover": "#4F46E5",
+      "primarySoft": "#F0EFFF",
+      "primarySoftDark": "rgba(99, 91, 255, 0.22)",
+      "gradient": "linear-gradient(135deg, #635BFF 0%, #EC4899 100%)"
+    }
+  },
+  "semantic": {
+    "light": {
+      "bgCanvas": "#F4F6FA",
+      "bgSurface": "#FFFFFF",
+      "bgGlass": "rgba(255, 255, 255, 0.74)",
+      "bgGlassStrong": "rgba(255, 255, 255, 0.88)",
+      "bgSubtle": "#F7F8FA",
+      "textPrimary": "#212124",
+      "textSecondary": "#4D5159",
+      "textMuted": "#868B94",
+      "borderDefault": "#EAEBEE",
+      "borderGlass": "rgba(255, 255, 255, 0.82)",
+      "borderFrame": "#212124",
+      "statusAvailable": "#2B8A3E",
+      "statusReserved": "#0CA678",
+      "statusDanger": "#FA5252"
+    },
+    "dark": {
+      "bgCanvas": "#0D0F14",
+      "bgSurface": "#161922",
+      "bgGlass": "rgba(24, 28, 38, 0.76)",
+      "bgGlassStrong": "rgba(28, 33, 45, 0.88)",
+      "bgSubtle": "#1E222E",
+      "textPrimary": "#F3F5F8",
+      "textSecondary": "#B0B8C4",
+      "textMuted": "#778192",
+      "borderDefault": "rgba(255, 255, 255, 0.1)",
+      "borderGlass": "rgba(255, 255, 255, 0.14)",
+      "borderFrame": "rgba(255, 255, 255, 0.24)",
+      "statusAvailable": "#40C057",
+      "statusReserved": "#20C997",
+      "statusDanger": "#FF6B6B"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# 환경 변수 및 시크릿 키 보호 (SUPABASE_SERVICE_ROLE_KEY, SUPABASE_ACCESS_TOKEN 등 노출 방지)
+.env
+.env.*
+!.env.example
+
+# 로컬/에디터/운영체제 임시 파일
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini

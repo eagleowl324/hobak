@@ -1,0 +1,529 @@
+/* ==========================================================================
+   호박(🎃 호박) x StyleSeed ui-setup (sickn33/agentic-awesome-skills)
+   디자인 토큰 매핑, 브랜드 스킨(Skins), 다크 모드(WCAG), 라디우스/타이포 스케일 및
+   인터랙티브 UI Setup 위저드 스타일 (css/theme.css)
+   ========================================================================== */
+
+:root,
+html[data-skin="hobak"] {
+  --ss-brand-primary: #FF6F0F;
+  --ss-brand-hover: #E85D00;
+  --ss-brand-soft: #FFF4EB;
+  --ss-brand-soft-dark: rgba(255, 111, 15, 0.18);
+  --ss-brand-glow: rgba(255, 111, 15, 0.35);
+  --ss-brand-gradient: linear-gradient(135deg, #FF6F0F 0%, #FF8E3C 100%);
+  --hobak-orange: var(--ss-brand-primary);
+  --hobak-orange-hover: var(--ss-brand-hover);
+  --hobak-orange-light: var(--ss-brand-soft);
+}
+
+html[data-skin="toss"] {
+  --ss-brand-primary: #3182F6;
+  --ss-brand-hover: #1B64DA;
+  --ss-brand-soft: #E8F3FF;
+  --ss-brand-soft-dark: rgba(49, 130, 246, 0.22);
+  --ss-brand-glow: rgba(49, 130, 246, 0.38);
+  --ss-brand-gradient: linear-gradient(135deg, #3182F6 0%, #5B9DFF 100%);
+  --hobak-orange: var(--ss-brand-primary);
+  --hobak-orange-hover: var(--ss-brand-hover);
+  --hobak-orange-light: var(--ss-brand-soft);
+}
+
+html[data-skin="linear"] {
+  --ss-brand-primary: #5E6AD2;
+  --ss-brand-hover: #4B56B8;
+  --ss-brand-soft: #EEF0FF;
+  --ss-brand-soft-dark: rgba(94, 106, 210, 0.24);
+  --ss-brand-glow: rgba(94, 106, 210, 0.38);
+  --ss-brand-gradient: linear-gradient(135deg, #5E6AD2 0%, #828DF2 100%);
+  --hobak-orange: var(--ss-brand-primary);
+  --hobak-orange-hover: var(--ss-brand-hover);
+  --hobak-orange-light: var(--ss-brand-soft);
+}
+
+html[data-skin="stripe"] {
+  --ss-brand-primary: #635BFF;
+  --ss-brand-hover: #4F46E5;
+  --ss-brand-soft: #F0EFFF;
+  --ss-brand-soft-dark: rgba(99, 91, 255, 0.24);
+  --ss-brand-glow: rgba(99, 91, 255, 0.38);
+  --ss-brand-gradient: linear-gradient(135deg, #635BFF 0%, #EC4899 100%);
+  --hobak-orange: var(--ss-brand-primary);
+  --hobak-orange-hover: var(--ss-brand-hover);
+  --hobak-orange-light: var(--ss-brand-soft);
+}
+
+/* --------------------------------------------------------------------------
+   2. Radius Scales (sharp / rounded / soft)
+   -------------------------------------------------------------------------- */
+:root,
+html[data-radius="rounded"] {
+  --ss-radius-card: 20px;
+  --ss-radius-thumb: 14px;
+  --ss-radius-frame: 24px;
+  --ss-radius-input: 12px;
+}
+
+html[data-radius="sharp"] {
+  --ss-radius-card: 10px;
+  --ss-radius-thumb: 6px;
+  --ss-radius-frame: 12px;
+  --ss-radius-input: 6px;
+}
+
+html[data-radius="soft"] {
+  --ss-radius-card: 28px;
+  --ss-radius-thumb: 20px;
+  --ss-radius-frame: 34px;
+  --ss-radius-input: 18px;
+}
+
+.hobak-product-card {
+  border-radius: var(--ss-radius-card) !important;
+}
+
+.hobak-card-thumb-wrap {
+  border-radius: var(--ss-radius-thumb) !important;
+}
+
+.hobak-detail-card,
+.hobak-write-card,
+.hobak-sidebar-card {
+  border-radius: var(--ss-radius-frame) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography Scale Presets (compact / default / comfortable)
+   -------------------------------------------------------------------------- */
+html[data-scale="compact"] {
+  font-size: 93.75%;
+}
+
+html[data-scale="default"] {
+  font-size: 100%;
+}
+
+html[data-scale="comfortable"] {
+  font-size: 106.25%;
+}
+
+/* 스킨 그라데이션 연동 */
+.hobak-write-btn,
+.hobak-detail-app-btn,
+.hobak-write-submit-pill,
+.hobak-write-submit-btn,
+.hobak-detail-chat-btn,
+.ag-dock-btn.active {
+  background: var(--ss-brand-gradient) !important;
+}
+
+.hobak-card-pay-badge,
+.hobak-result-count-badge,
+.ag-dock-badge {
+  color: var(--ss-brand-primary) !important;
+  background: var(--hobak-orange-light) !important;
+}
+
+.hobak-detail-manner-temp,
+.hobak-write-manner-temp,
+.hobak-logo,
+.hobak-footer-logo {
+  color: var(--ss-brand-primary) !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Dark Mode Semantic Token Overrides (html[data-theme="dark"] / .dark)
+   -------------------------------------------------------------------------- */
+html[data-theme="dark"],
+html.dark {
+  --hobak-text-primary: #F3F5F8;
+  --hobak-text-secondary: #B0B8C4;
+  --hobak-text-muted: #7B8596;
+  --hobak-border: rgba(255, 255, 255, 0.11);
+  --hobak-bg-main: #12151E;
+  --hobak-bg-sub: #0D0F14;
+  --hobak-orange-light: var(--ss-brand-soft-dark);
+  --ag-glass-bg: rgba(22, 26, 36, 0.78);
+  --ag-glass-bg-strong: rgba(26, 31, 44, 0.88);
+  --ag-glass-border: rgba(255, 255, 255, 0.13);
+  --ag-shadow-weightless:
+    0 24px 48px -12px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  --ag-shadow-weightless-hover:
+    0 32px 64px -12px rgba(0, 0, 0, 0.82),
+    0 12px 28px -8px var(--ss-brand-glow),
+    0 0 0 1.5px rgba(255, 255, 255, 0.24) inset;
+  --ag-shadow-card-stage:
+    0 40px 90px -16px rgba(0, 0, 0, 0.78),
+    0 0 0 1px rgba(255, 255, 255, 0.16) inset;
+}
+
+html[data-theme="dark"] body {
+  background: radial-gradient(circle at 18% 15%, #191D2B 0%, #0D0F14 55%, #090A0F 100%) !important;
+  color: #F3F5F8;
+}
+
+html[data-theme="dark"] .ag-spatial-grid-mesh {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+html[data-theme="dark"] .hobak-header {
+  background: rgba(15, 18, 25, 0.76) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.09) !important;
+}
+
+html[data-theme="dark"] .hobak-search-input-wrap,
+html[data-theme="dark"] .hobak-category-chip,
+html[data-theme="dark"] .hobak-filter-btn,
+html[data-theme="dark"] .hobak-location-select-wrap,
+html[data-theme="dark"] .hobak-available-toggle,
+html[data-theme="dark"] .hobak-reset-data-btn,
+html[data-theme="dark"] .hobak-keyword-tag,
+html[data-theme="dark"] .hobak-page-btn,
+html[data-theme="dark"] .hobak-stage-back-btn,
+html[data-theme="dark"] .ag-control-dock,
+html[data-theme="dark"] .hobak-sort-panel {
+  background: rgba(28, 33, 46, 0.82) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #E5E9F0 !important;
+}
+
+html[data-theme="dark"] .hobak-category-chip.active,
+html[data-theme="dark"] .hobak-available-toggle.active,
+html[data-theme="dark"] .hobak-page-btn.active,
+html[data-theme="dark"] .hobak-keyword-tag.active,
+html[data-theme="dark"] .hobak-service-chip {
+  background: var(--ss-brand-gradient) !important;
+  color: #FFFFFF !important;
+  border-color: transparent !important;
+}
+
+html[data-theme="dark"] .hobak-search-input,
+html[data-theme="dark"] .hobak-location-select,
+html[data-theme="dark"] .hobak-result-title,
+html[data-theme="dark"] .hobak-card-title,
+html[data-theme="dark"] .hobak-card-price,
+html[data-theme="dark"] .hobak-sidebar-title,
+html[data-theme="dark"] .hobak-detail-title,
+html[data-theme="dark"] .hobak-detail-price,
+html[data-theme="dark"] .hobak-detail-seller-name,
+html[data-theme="dark"] .hobak-detail-description,
+html[data-theme="dark"] .hobak-detail-spec-label,
+html[data-theme="dark"] .hobak-detail-spec-value,
+html[data-theme="dark"] .hobak-write-title-input,
+html[data-theme="dark"] .hobak-write-price-input,
+html[data-theme="dark"] .hobak-write-price-unit,
+html[data-theme="dark"] .hobak-write-desc-textarea,
+html[data-theme="dark"] .hobak-write-nickname-input,
+html[data-theme="dark"] .hobak-write-size-label,
+html[data-theme="dark"] .hobak-write-size-input {
+  color: #F3F5F8 !important;
+}
+
+html[data-theme="dark"] .hobak-location-select option,
+html[data-theme="dark"] .hobak-write-location-select option,
+html[data-theme="dark"] .hobak-write-category-select option {
+  background: #1B1F2B;
+  color: #F3F5F8;
+}
+
+html[data-theme="dark"] .hobak-detail-seller-row,
+html[data-theme="dark"] .hobak-write-seller-row,
+html[data-theme="dark"] .hobak-write-upload-toolbar,
+html[data-theme="dark"] .hobak-detail-action-bar {
+  background: rgba(20, 24, 34, 0.72) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html[data-theme="dark"] .hobak-write-preset-chip,
+html[data-theme="dark"] .hobak-write-size-chip,
+html[data-theme="dark"] .hobak-write-tool-btn,
+html[data-theme="dark"] .hobak-write-reset-btn,
+html[data-theme="dark"] .hobak-detail-sub-btn,
+html[data-theme="dark"] .hobak-detail-like-btn {
+  background: rgba(36, 42, 58, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #E5E9F0 !important;
+}
+
+html[data-theme="dark"] .hobak-footer {
+  background: rgba(14, 17, 24, 0.85) !important;
+  border-top-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html[data-theme="dark"] .hobak-footer-col-title {
+  color: #F3F5F8 !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. UI Setup Trigger Button & Interactive Setup Wizard Modal
+   -------------------------------------------------------------------------- */
+.ss-setup-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: var(--ss-brand-gradient);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 6px 18px -4px var(--ss-brand-glow);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ss-setup-trigger-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 24px -4px var(--ss-brand-glow);
+}
+
+.ss-theme-quick-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ss-theme-quick-btn:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* 모달 백드롭 */
+.ss-wizard-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 18, 0.56);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 9800;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.ss-wizard-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ss-wizard-modal {
+  width: 100%;
+  max-width: 640px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--ag-glass-bg-strong, rgba(255, 255, 255, 0.94));
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1.5px solid var(--ag-glass-border, rgba(255, 255, 255, 0.85));
+  border-radius: 26px;
+  box-shadow: 0 36px 90px -12px rgba(0, 0, 0, 0.35);
+  color: var(--hobak-text-primary, #212124);
+  padding: 26px;
+  transform: translateY(16px) scale(0.97);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ss-wizard-backdrop.open .ss-wizard-modal {
+  transform: translateY(0) scale(1);
+}
+
+.ss-wizard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--hobak-border, #EAEBEE);
+}
+
+.ss-wizard-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--hobak-orange-light);
+  color: var(--ss-brand-primary);
+  margin-bottom: 6px;
+}
+
+.ss-wizard-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.ss-wizard-subtitle {
+  font-size: 13px;
+  color: var(--hobak-text-secondary, #4D5159);
+  margin-top: 2px;
+}
+
+.ss-wizard-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background: rgba(134, 139, 148, 0.12);
+  color: var(--hobak-text-primary);
+  cursor: pointer;
+}
+
+.ss-wizard-section {
+  margin-top: 20px;
+}
+
+.ss-wizard-section-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hobak-text-secondary);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ss-skin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.ss-skin-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1.5px solid var(--hobak-border, #EAEBEE);
+  background: rgba(134, 139, 148, 0.05);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ss-skin-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ss-brand-primary);
+}
+
+.ss-skin-card.active {
+  border-color: var(--ss-brand-primary);
+  background: var(--hobak-orange-light);
+  box-shadow: 0 8px 20px -6px var(--ss-brand-glow);
+}
+
+.ss-skin-swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.ss-skin-info strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--hobak-text-primary);
+}
+
+.ss-skin-info span {
+  font-size: 11px;
+  color: var(--hobak-text-muted);
+}
+
+.ss-option-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.ss-option-pill {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1.5px solid var(--hobak-border, #EAEBEE);
+  background: rgba(134, 139, 148, 0.05);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--hobak-text-primary);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.ss-option-pill.active {
+  border-color: var(--ss-brand-primary);
+  background: var(--hobak-orange-light);
+  color: var(--ss-brand-primary);
+}
+
+.ss-token-preview {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #141720;
+  color: #E2E8F0;
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 11.5px;
+  line-height: 1.55;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ss-wizard-footer {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--hobak-border, #EAEBEE);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ss-reset-btn {
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--hobak-text-secondary);
+  background: rgba(134, 139, 148, 0.12);
+}
+
+.ss-apply-btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: var(--ss-brand-gradient);
+  box-shadow: 0 8px 20px -4px var(--ss-brand-glow);
+}
+
+@media (max-width: 560px) {
+  .ss-skin-grid {
+    grid-template-columns: 1fr;
+  }
+}

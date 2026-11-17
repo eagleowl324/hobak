@@ -1,0 +1,29 @@
+{
+  "$schema": "https://styleseed.dev/schemas/radii.json",
+  "scales": {
+    "sharp": {
+      "label": "모던 샤프 (10px)",
+      "card": "10px",
+      "thumb": "8px",
+      "frame": "14px",
+      "input": "8px",
+      "pill": "999px"
+    },
+    "rounded": {
+      "label": "호박 스탠다드 (20px)",
+      "card": "20px",
+      "thumb": "14px",
+      "frame": "24px",
+      "input": "12px",
+      "pill": "999px"
+    },
+    "soft": {
+      "label": "소프트 라운드 (28px)",
+      "card": "28px",
+      "thumb": "20px",
+      "frame": "32px",
+      "input": "16px",
+      "pill": "999px"
+    }
+  }
+}

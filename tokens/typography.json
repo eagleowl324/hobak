@@ -1,0 +1,38 @@
+{
+  "$schema": "https://styleseed.dev/schemas/typography.json",
+  "fontFamily": {
+    "sans": "'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif",
+    "mono": "'JetBrains Mono', 'Fira Code', Consolas, monospace"
+  },
+  "scale": {
+    "xs": "12px",
+    "sm": "13px",
+    "base": "15px",
+    "md": "16px",
+    "lg": "18px",
+    "xl": "20px",
+    "2xl": "24px",
+    "3xl": "28px"
+  },
+  "presets": {
+    "compact": {
+      "label": "컴팩트 뷰 (94%)",
+      "multiplier": 0.94
+    },
+    "default": {
+      "label": "기본 프리텐다드 (100%)",
+      "multiplier": 1.0
+    },
+    "comfortable": {
+      "label": "큰 글씨 가독성 (107%)",
+      "multiplier": 1.07
+    }
+  },
+  "weights": {
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700,
+    "extrabold": 800
+  }
+}

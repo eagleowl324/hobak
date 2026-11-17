@@ -1,0 +1,73 @@
+/* 호박(Hobak) 중고거래 웹서비스 - 공통 스타일 (common.css) */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root {
+  --hobak-orange: #FF6F0F;
+  --hobak-orange-hover: #E85D00;
+  --hobak-orange-light: #FFF4EB;
+  --hobak-green: #2B8A3E;
+  --hobak-text-primary: #212124;
+  --hobak-text-secondary: #4D5159;
+  --hobak-text-muted: #868B94;
+  --hobak-border: #EAEBEE;
+  --hobak-bg-main: #FFFFFF;
+  --hobak-bg-sub: #F7F8FA;
+  --hobak-radius-card: 16px;
+  --hobak-radius-pill: 999px;
+  --hobak-shadow-card: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --hobak-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  color: var(--hobak-text-primary);
+  background-color: var(--hobak-bg-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 공통 토스트 알림 */
+.hobak-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(33, 33, 36, 0.94);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 9999;
+}
+
+.hobak-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

@@ -1,0 +1,494 @@
+/* ==========================================================================
+   호박(🎃 호박) x Antigravity Design Expert (sickn33/agentic-awesome-skills)
+   Pillar 1: Weightlessness (무중력 부유감 & 다중 확산 그림자)
+   Pillar 2: Spatial Depth & 3D Perspective (Z축 레이어링 & 3D 마그네틱 틸트)
+   Pillar 3: Glassmorphism (고급 반투명 프로스티드 글래스 & 스페큘러 보더)
+   Pillar 4: Isometric 3D Grids (3D 아이소메트릭 공간 그리드 모드)
+   Pillar 5: Butter-Smooth Motion (GSAP + ScrollTrigger 물리 모션 연동)
+   ========================================================================== */
+
+:root {
+  --ag-glass-bg: rgba(255, 255, 255, 0.72);
+  --ag-glass-bg-strong: rgba(255, 255, 255, 0.84);
+  --ag-glass-border: rgba(255, 255, 255, 0.78);
+  --ag-glass-border-subtle: rgba(255, 255, 255, 0.55);
+  --ag-shadow-weightless:
+    0 20px 44px -14px rgba(18, 21, 30, 0.08),
+    0 10px 22px -10px rgba(255, 111, 15, 0.07),
+    0 0 0 1px rgba(255, 255, 255, 0.75) inset;
+  --ag-shadow-weightless-hover:
+    0 32px 64px -12px rgba(18, 21, 30, 0.15),
+    0 16px 32px -8px rgba(255, 111, 15, 0.18),
+    0 0 0 1.5px rgba(255, 255, 255, 0.92) inset;
+  --ag-shadow-card-stage:
+    0 36px 80px -16px rgba(18, 21, 30, 0.16),
+    0 16px 36px -10px rgba(255, 111, 15, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+}
+
+/* --------------------------------------------------------------------------
+   1. Ambient Spatial Background & Floating Light Orbs
+   -------------------------------------------------------------------------- */
+body {
+  background: radial-gradient(circle at 15% 15%, #FFF5EC 0%, #F4F6FA 48%, #EEF1F8 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+.ag-spatial-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ag-spatial-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(75px);
+  opacity: 0.52;
+  will-change: transform;
+}
+
+.ag-spatial-orb.orb-1 {
+  width: 480px;
+  height: 480px;
+  top: -120px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(255, 111, 15, 0.34) 0%, rgba(255, 169, 77, 0.08) 70%, transparent 100%);
+}
+
+.ag-spatial-orb.orb-2 {
+  width: 540px;
+  height: 540px;
+  top: 28%;
+  right: -140px;
+  background: radial-gradient(circle, rgba(255, 146, 43, 0.25) 0%, rgba(132, 94, 247, 0.12) 65%, transparent 100%);
+}
+
+.ag-spatial-orb.orb-3 {
+  width: 460px;
+  height: 460px;
+  bottom: -140px;
+  left: 22%;
+  background: radial-gradient(circle, rgba(51, 154, 240, 0.16) 0%, rgba(255, 111, 15, 0.14) 65%, transparent 100%);
+}
+
+/* 공간 깊이감을 위한 그리드 메쉬 배경 */
+.ag-spatial-grid-mesh {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(33, 33, 36, 0.024) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(33, 33, 36, 0.024) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 20%, transparent 80%);
+}
+
+.hobak-app-shell,
+.hobak-list-page,
+.hobak-detail-page-body,
+.hobak-write-page-shell {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. Antigravity Control Toolbar (Spatial Mode / Isometric 3D / Levitation)
+   -------------------------------------------------------------------------- */
+.ag-control-dock {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 28px -8px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 111, 15, 0.12);
+}
+
+.ag-dock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #FF6F0F;
+  background: rgba(255, 111, 15, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: -0.01em;
+}
+
+.ag-dock-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #343A40;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+
+.ag-dock-btn:hover {
+  transform: translateY(-2px);
+  color: #FF6F0F;
+  border-color: rgba(255, 111, 15, 0.35);
+  box-shadow: 0 6px 16px rgba(255, 111, 15, 0.15);
+}
+
+.ag-dock-btn.active {
+  background: linear-gradient(135deg, #FF6F0F 0%, #FF8A3D 100%);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 8px 20px -4px rgba(255, 111, 15, 0.45);
+}
+
+/* 단독 페이지용 플로팅 Antigravity 독 */
+.ag-floating-dock {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 950;
+}
+
+/* --------------------------------------------------------------------------
+   3. Glassmorphism Header, Subheader & Navigation
+   -------------------------------------------------------------------------- */
+.hobak-global-bar {
+  background: rgba(24, 24, 29, 0.78) !important;
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.22);
+}
+
+.hobak-header {
+  background: rgba(255, 255, 255, 0.68) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75) !important;
+  box-shadow: 0 12px 36px -12px rgba(18, 21, 30, 0.06);
+}
+
+.hobak-search-input-wrap {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow:
+    0 8px 24px -6px rgba(18, 21, 30, 0.06),
+    0 0 0 1px rgba(33, 33, 36, 0.06);
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.hobak-search-input-wrap:focus-within {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    0 16px 32px -8px rgba(255, 111, 15, 0.16),
+    0 0 0 2px rgba(255, 111, 15, 0.45) !important;
+}
+
+.hobak-write-btn {
+  background: linear-gradient(135deg, #FF6F0F 0%, #FF8E3C 100%) !important;
+  box-shadow:
+    0 12px 24px -6px rgba(255, 111, 15, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.35) inset !important;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease !important;
+}
+
+.hobak-write-btn:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow:
+    0 18px 34px -6px rgba(255, 111, 15, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset !important;
+}
+
+/* 카테고리 칩 & 필터 버튼 글래스모피즘 */
+.hobak-category-chip,
+.hobak-filter-btn,
+.hobak-location-select-wrap,
+.hobak-available-toggle,
+.hobak-reset-data-btn {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 6px 16px -6px rgba(18, 21, 30, 0.06);
+  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hobak-category-chip:hover,
+.hobak-filter-btn:hover,
+.hobak-available-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px -6px rgba(18, 21, 30, 0.11);
+}
+
+/* --------------------------------------------------------------------------
+   4. Product List Grid: Weightless 3D Spatial Cards & Isometric Mode
+   -------------------------------------------------------------------------- */
+.hobak-grid-section {
+  perspective: 1400px;
+}
+
+.hobak-product-grid {
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 상품 카드: 무중력 부유감 + 글래스모피즘 + 3D 공간 레이어링 */
+.hobak-product-card {
+  position: relative;
+  background: var(--ag-glass-bg) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--ag-glass-border) !important;
+  border-radius: 20px !important;
+  padding: 12px !important;
+  box-shadow: var(--ag-shadow-weightless) !important;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease !important;
+}
+
+.hobak-product-card:hover {
+  border-color: rgba(255, 111, 15, 0.45) !important;
+  box-shadow: var(--ag-shadow-weightless-hover) !important;
+  z-index: 10;
+}
+
+/* 카드 내부 Z축 공간 깊이감 (Spatial Z-Axis Pop-Out) */
+.hobak-card-thumb-wrap {
+  border-radius: 14px !important;
+  transform: translateZ(22px);
+  transform-style: preserve-3d;
+  box-shadow: 0 12px 26px -8px rgba(0, 0, 0, 0.14);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.hobak-product-card:hover .hobak-card-thumb-wrap {
+  transform: translateZ(34px) translateY(-3px);
+  box-shadow: 0 20px 36px -10px rgba(0, 0, 0, 0.22);
+}
+
+.hobak-card-status-badge {
+  transform: translateZ(42px);
+  backdrop-filter: blur(10px);
+}
+
+.hobak-card-body {
+  padding: 12px 4px 4px !important;
+  transform: translateZ(18px);
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hobak-product-card:hover .hobak-card-body {
+  transform: translateZ(26px);
+}
+
+.hobak-card-pay-badge {
+  box-shadow: 0 4px 12px rgba(255, 111, 15, 0.2);
+}
+
+/* 마우스 커서 추적 스페큘러 광원 레이어 (Glare) */
+.ag-card-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    360px circle at var(--ag-glare-x, 50%) var(--ag-glare-y, 50%),
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 111, 15, 0.08) 38%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 4;
+  mix-blend-mode: overlay;
+}
+
+.hobak-product-card:hover .ag-card-glare,
+.hobak-detail-card:hover .ag-card-glare,
+.hobak-write-card:hover .ag-card-glare {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   5. Isometric 3D Grid Mode (아이소메트릭 3D 그리드 뷰)
+   -------------------------------------------------------------------------- */
+body.ag-isometric-active .hobak-product-grid {
+  transform: perspective(1500px) rotateX(24deg) rotateY(-12deg) rotateZ(4deg) scale(0.95);
+  transform-origin: center top;
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+body.ag-isometric-active .hobak-product-card {
+  box-shadow:
+    -14px 24px 42px -10px rgba(18, 21, 30, 0.16),
+    -6px 12px 20px -6px rgba(255, 111, 15, 0.12),
+    0 0 0 1.5px rgba(255, 255, 255, 0.85) inset !important;
+}
+
+body.ag-isometric-active .hobak-product-card:hover {
+  transform: translate3d(8px, -18px, 55px) !important;
+  box-shadow:
+    -24px 40px 68px -10px rgba(18, 21, 30, 0.25),
+    0 18px 36px -6px rgba(255, 111, 15, 0.28),
+    0 0 0 2px rgba(255, 255, 255, 0.96) inset !important;
+}
+
+/* 무중력 연속 부유 애니메이션 (Zero-Gravity Levitation) */
+@keyframes agWeightlessFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+body.ag-float-active .hobak-sidebar-card {
+  animation: agWeightlessFloat 5.5s ease-in-out infinite;
+}
+
+/* 우측 인기 검색어 사이드바 글래스모피즘 */
+.hobak-sidebar-card {
+  background: var(--ag-glass-bg) !important;
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid var(--ag-glass-border) !important;
+  border-radius: 22px !important;
+  box-shadow: var(--ag-shadow-weightless) !important;
+  transform-style: preserve-3d;
+}
+
+.hobak-keyword-tag {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 4px 12px -4px rgba(18, 21, 30, 0.06);
+  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.hobak-keyword-tag:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 20px -6px rgba(255, 111, 15, 0.22);
+}
+
+/* --------------------------------------------------------------------------
+   6. Product Detail & Write Cards: Spatial Glassmorphic Frame
+   -------------------------------------------------------------------------- */
+.hobak-card-stage {
+  background: transparent !important;
+  perspective: 1400px;
+}
+
+.hobak-detail-wrapper,
+.hobak-write-container {
+  perspective: 1400px;
+}
+
+.hobak-detail-card,
+.hobak-write-card {
+  position: relative;
+  background: var(--ag-glass-bg-strong) !important;
+  backdrop-filter: blur(22px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(190%) !important;
+  border: 1.5px solid rgba(33, 33, 36, 0.82) !important;
+  box-shadow: var(--ag-shadow-card-stage) !important;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+}
+
+/* 상세/글쓰기 상단 캡슐 버튼('앱에서 보기', '등록 완료') 무중력 글래스 광택 */
+.hobak-detail-app-btn,
+.hobak-write-submit-pill {
+  background: linear-gradient(135deg, #FF6F0F 0%, #FF8B3D 100%) !important;
+  box-shadow:
+    0 10px 24px -4px rgba(255, 111, 15, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.4) inset !important;
+  transform: translateZ(30px);
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease !important;
+}
+
+.hobak-detail-app-btn:hover,
+.hobak-write-submit-pill:hover {
+  transform: translateZ(38px) translateY(-2px) scale(1.03) !important;
+  box-shadow:
+    0 16px 32px -4px rgba(255, 111, 15, 0.68),
+    0 0 0 1.5px rgba(255, 255, 255, 0.65) inset !important;
+}
+
+.hobak-detail-close-btn,
+.hobak-write-close-btn {
+  backdrop-filter: blur(12px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+  transform: translateZ(30px);
+  transition: transform 0.22s ease, background 0.22s ease !important;
+}
+
+.hobak-detail-close-btn:hover,
+.hobak-write-close-btn:hover {
+  transform: translateZ(36px) scale(1.08);
+}
+
+/* 상세/글쓰기 슬라이더 화살표 및 인디케이터 글래스 효과 */
+.hobak-detail-arrow,
+.hobak-write-slider-arrow {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateY(-50%) translateZ(28px);
+}
+
+/* 상세/글쓰기 판매자 프로필 & 매너온도 Z축 레이어 */
+.hobak-detail-seller-row,
+.hobak-write-seller-row {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  transform: translateZ(16px);
+  position: relative;
+  z-index: 6;
+}
+
+.hobak-detail-content,
+.hobak-detail-action-bar,
+.hobak-write-body {
+  position: relative;
+  z-index: 6;
+  transform: translateZ(20px);
+}
+
+.hobak-detail-manner-temp,
+.hobak-write-manner-temp {
+  text-shadow: 0 4px 14px rgba(255, 111, 15, 0.25);
+}
+
+/* 푸터 글래스모피즘 */
+.hobak-footer {
+  background: rgba(255, 255, 255, 0.62) !important;
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-top: 1px solid rgba(255, 255, 255, 0.8) !important;
+}
+
+@media (max-width: 768px) {
+  body.ag-isometric-active .hobak-product-grid {
+    transform: perspective(1200px) rotateX(12deg) rotateY(-6deg) scale(0.97);
+  }
+  .ag-floating-dock {
+    bottom: 14px;
+    right: 14px;
+  }
+}

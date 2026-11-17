@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎃 호박 - 우리 동네 중고거래 웹서비스</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎃</text></svg>" />
+  <!-- 공통 스타일 -->
+  <link rel="stylesheet" href="css/common.css" />
+  <!-- 서브에이전트 1: 상품목록 페이지 스타일 -->
+  <link rel="stylesheet" href="css/list.css?v=20261117d" />
+  <!-- 서브에이전트 2: 상품상세 페이지 스타일 -->
+  <link rel="stylesheet" href="css/detail.css?v=20261117d" />
+  <!-- 서브에이전트 3: 글쓰기 페이지 스타일 -->
+  <link rel="stylesheet" href="css/write.css?v=20261117d" />
+  <!-- 통합 앱 레이아웃 스타일 -->
+  <link rel="stylesheet" href="css/app.css?v=20261117d" />
+  <!-- Antigravity Design Expert (Weightlessness, Spatial 3D, Glassmorphism, Isometric) -->
+  <link rel="stylesheet" href="css/antigravity-design.css?v=20261117d" />
+  <!-- StyleSeed ui-setup (Design Tokens, Brand Skins, Light/Dark Mode, Setup Wizard) -->
+  <link rel="stylesheet" href="css/theme.css?v=20261117d" />
+  <!-- Supabase Auth 로그인/회원가입 모달 및 상단 인증 바 스타일 -->
+  <link rel="stylesheet" href="css/auth.css?v=20261117d" />
+</head>
+<body>
+  <div class="hobak-app-shell">
+    <!-- 최상단 통합 사이트 네비게이션 바 (3개 페이지 즉시 전환 & 상품 빠른 이동) -->
+    <nav class="hobak-global-bar" aria-label="호박 통합 화면 전환 바">
+      <div class="hobak-global-bar-inner">
+        <div class="hobak-global-brand">
+          <span class="hobak-global-badge">🎃 호박 통합 사이트</span>
+          <span class="hobak-global-desc">우리 동네 중고거래 웹서비스 (가상 매물 10개 탑재)</span>
+        </div>
+
+        <div class="hobak-global-tabs" role="tablist">
+          <button type="button" class="hobak-global-tab active" data-app-view="list">
+            <span>📋 상품목록 페이지</span>
+          </button>
+          <button type="button" class="hobak-global-tab" data-app-view="detail">
+            <span>🔍 상품상세 페이지</span>
+          </button>
+          <button type="button" class="hobak-global-tab" data-app-view="write">
+            <span>✏️ 글쓰기 페이지</span>
+          </button>
+        </div>
+
+        <div class="hobak-global-right">
+          <select id="hobakQuickItemSelect" class="hobak-quick-item-select" aria-label="상품 바로보기 선택" title="상세 페이지로 바로 볼 상품 선택">
+          </select>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 1. 상품목록 뷰 섹션 (서브에이전트 1 모듈 마운트) -->
+    <section id="hobakViewList" class="hobak-view-section active" aria-label="상품목록 화면">
+      <div id="hobakIntegratedListMount"></div>
+    </section>
+
+    <!-- 2. 상품상세 뷰 섹션 (서브에이전트 2 모듈 마운트) -->
+    <section id="hobakViewDetail" class="hobak-view-section" aria-label="상품상세 화면">
+      <div class="hobak-card-stage">
+        <div class="hobak-stage-Subnav">
+          <button type="button" class="hobak-stage-back-btn" data-stage-nav="list">
+            <span>← 상품목록으로 돌아가기</span>
+          </button>
+          <div class="hobak-stage-nav-right">
+            <button type="button" class="hobak-stage-back-btn" data-stage-nav="prev-item" title="이전 매물 보기">‹ 이전 매물</button>
+            <button type="button" class="hobak-stage-back-btn" data-stage-nav="next-item" title="다음 매물 보기">다음 매물 ›</button>
+            <button type="button" class="hobak-stage-action-chip" data-stage-nav="write">+ 글쓰기</button>
+          </div>
+        </div>
+        <div id="hobakIntegratedDetailMount" style="width: 100%;"></div>
+      </div>
+    </section>
+
+    <!-- 3. 글쓰기 뷰 섹션 (서브에이전트 3 모듈 마운트) -->
+    <section id="hobakViewWrite" class="hobak-view-section" aria-label="글쓰기 화면">
+      <div class="hobak-card-stage">
+        <div class="hobak-stage-Subnav">
+          <button type="button" class="hobak-stage-back-btn" data-stage-nav="list">
+            <span>← 상품목록으로 돌아가기</span>
+          </button>
+          <div class="hobak-stage-nav-right">
+            <button type="button" class="hobak-stage-action-chip" data-stage-nav="detail">🔍 상품상세 참고하기</button>
+          </div>
+        </div>
+        <div id="hobakIntegratedWriteMount" style="width: 100%;"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 공통 데이터 스토어 -->
+  <script src="data/mock-data.js?v=20261117d"></script>
+  <!-- Supabase Auth 인증 및 모달 모듈 -->
+  <script src="js/auth.js?v=20261117d"></script>
+  <!-- 서브에이전트 1~3 스크립트 모듈 -->
+  <script src="js/list.js?v=20261117d"></script>
+  <script src="js/detail.js?v=20261117d"></script>
+  <script src="js/write.js?v=20261117d"></script>
+  <!-- 통합 컨트롤러 -->
+  <script src="js/app.js?v=20261117d"></script>
+  <!-- GSAP + ScrollTrigger & Antigravity Design Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/antigravity-design.js?v=20261117d"></script>
+  <script src="js/ui-setup.js?v=20261117d"></script>
+</body>
+</html>

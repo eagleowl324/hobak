@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>내 물건 팔기 (글쓰기) - 🎃 호박 중고마켓</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎃</text></svg>" />
+  <link rel="stylesheet" href="./css/common.css?v=20261117d" />
+  <link rel="stylesheet" href="./css/write.css?v=20261117d" />
+  <link rel="stylesheet" href="./css/antigravity-design.css?v=20261117d" />
+  <link rel="stylesheet" href="./css/theme.css?v=20261117d" />
+  <link rel="stylesheet" href="./css/auth.css?v=20261117d" />
+</head>
+<body>
+  <div class="hobak-write-page-shell">
+    <!-- 상단 미니 브랜드 헤더 -->
+    <header class="hobak-write-topbar">
+      <a href="./list.html" class="hobak-write-brand" title="호박 중고마켓 목록으로 이동">
+        <span class="hobak-write-brand-logo" aria-hidden="true">🎃</span>
+        <span>호박</span>
+      </a>
+      <div class="hobak-write-topbar-Right">
+        <span class="hobak-write-topbar-badge">내 물건 팔기 · 상세형 에디터</span>
+      </div>
+    </header>
+
+    <!-- 글쓰기 카드 렌더링 컨테이너 -->
+    <main id="writePageContainer"></main>
+  </div>
+
+  <script src="./data/mock-data.js?v=20261117d"></script>
+  <script src="./js/auth.js?v=20261117d"></script>
+  <script src="./js/write.js?v=20261117d"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.HobakWritePage && typeof window.HobakWritePage.init === 'function') {
+        window.HobakWritePage.init({
+          container: document.getElementById('writePageContainer')
+        });
+      }
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="./js/antigravity-design.js"></script>
+  <script src="./js/ui-setup.js"></script>
+</body>
+</html>
